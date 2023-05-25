@@ -1,27 +1,19 @@
 import './App.css';
-import {useState} from 'react';
 import JokeCard from './components/jokecard';
 import Jokes from './components/jokesData';
-// import Button from 'react';
 
 function App() {
-  const [isShown, setIsShown] = useState(false);
-
-  function showIt(){
-    setIsShown(() => !isShown)
-  }
+  
 
   function Stage(){
     const trap = ( Jokes.map((j) => {
-    return (
-          <div key={j.id} className="joke-box">
-            <JokeCard jokes={j} />
-            <button onClick={showIt}>Show</button>
-            <hr width="300px" />
-          </div>
-    )
-        })
-    )
+      return (
+        <div key={j.id} className="joke-box">
+          <JokeCard jokes={j} />
+          <hr width="300px" style={{marginTop: "25px"}} />
+        </div>
+      );
+    }))
     return trap;
   }
 
